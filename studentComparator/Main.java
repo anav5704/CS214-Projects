@@ -6,8 +6,8 @@ import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-        Comparator<Student> gpaAsc = (a, b) -> Double.compare(a.gpa, b.gpa);
-        Comparator<Student> gpaDesc = (a, b) -> Double.compare(b.gpa, a.gpa);
+        Comparator<Student> gpaAsc = (a, b) -> a.gpa.compareTo(b.gpa);
+        Comparator<Student> gpaDesc = (a, b) -> b.gpa.compareTo(a.gpa);
         Comparator<Student> nameAsc = (a, b) -> a.name.compareTo(b.name);
         Comparator<Student> nameDesc = (a, b) -> b.name.compareTo(a.name);
 
