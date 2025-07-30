@@ -1,34 +1,80 @@
 import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        Queue<Caller> callerQueue = new LinkedList<Caller>();
-        
-        Caller c1 = new Caller(1111111);
-        Caller c2 = new Caller(2222222);
-        Caller c3 = new Caller(3333333);
+        Queue<String> callerQueue = new LinkedList<String>();
+        Scanner scanner = new Scanner(System.in);
+        String input;
 
-        // Call center recieves calls
+        System.out.println("Starting call center simulation...\n");
 
-        callerQueue.add(c1);
-        callerQueue.add(c2);
-        callerQueue.add(c3);
+        while(true) {
+            System.out.println("Please select an option:");
+            System.out.println("1. New call");
+            System.out.println("2. Serve call");
+            System.out.println("3. View queue");
+            System.out.println("4. Hang up");
+            System.out.println("5. Quit app");
 
-        // Consultant views callers
+            String choice = scanner.nextLine();
 
-        System.out.println(callerQueue.size() + " caller waiting:");
+            switch(choice) {
+                case "1":  {
+                    System.out.println("Enter caller number:");
+                    String numberToAdd = scanner.nextLine();
 
-        for(Caller caller: callerQueue) {
-            caller.displayInfo();
-        }
+                    callerQueue.add(numberToAdd);
+                    System.out.println("Added " + numberToAdd + " to queue");
 
-        // Caller hangs up and gives name and message
+                    break;
+                }
 
-        c2.hangUp("Anav", "What time does the store open?");
+                case "2": {
+                    if(!callerQueue.isEmpty()) {
+                        System.out.println("You are now serving " + callerQueue.poll());
+                    } else {
+                        System.out.println("Caller not in queue");
+                    }
 
-        for(Caller caller: callerQueue) {
-            caller.displayInfo();
+                    break;
+                }
+
+                case "3": {
+                    if(!callerQueue.isEmpty()) {
+                        System.out.println("Current queue: " + callerQueue);
+                    } else {
+                        System.out.println("No callers in queue");
+                    }
+
+                    break;
+                }
+
+                case "4": {
+                    System.out.println("Enter caller number:");
+                    String  numberToRemove = scanner.nextLine();
+
+                    if(callerQueue.remove( numberToRemove)) {
+                        System.out.println( numberToRemove + " has hung up");
+                    } else {
+                        System.out.println("Caller not in queue");
+                    }
+
+                    break;
+                }
+
+                case "5": {
+                    System.out.print("Quitting app...");
+                    scanner.close();
+
+                    return;
+                }
+
+                default: {
+                    System.out.println("Invalid input");
+                }
+            }
         }
     }
 }
