@@ -1,10 +1,11 @@
 package priorityQueue;
 
 import java.util.PriorityQueue;
-// import java.util.Comparator;
+// import java.util.Comparator; (Inline comparator implementation)
 
 public class Main {
     public static void main(String[] args) {
+        // (Inline comparator implementation)
         // Comparator<Student> gpa = (a, b) -> b.gpa.compareTo(a.gpa);
 
         PriorityQueue<Student> studentPQ = new PriorityQueue<Student>();
@@ -18,11 +19,11 @@ public class Main {
         studentPQ.add(new Student("Sera", 4.2));
 
         int awardees = 0;
-        
-        while(!studentPQ.isEmpty() && awardees < 5) {
+
+        while (!studentPQ.isEmpty() && awardees < 5) {
             Student s = studentPQ.poll();
 
-            if(s.gpa > 4.0) {
+            if (s.getGpa() > 4.0) {
                 System.out.println(s);
                 awardees++;
             }
