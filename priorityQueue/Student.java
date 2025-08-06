@@ -1,6 +1,6 @@
 package priorityQueue;
 
-class Student {
+class Student implements Comparable<Student> {
     public String name;
     public Double gpa; 
 
@@ -9,9 +9,16 @@ class Student {
         this.gpa = gpa;
     }
 
+    @Override 
+    public int compareTo(Student other) {
+        return other.gpa.compareTo(gpa);
+    }
+
     @Override
     public String toString() {
         return "Name: " + name + " gpa: " + gpa;
     }
+
+
 }
 

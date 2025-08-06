@@ -1,15 +1,13 @@
 package priorityQueue;
 
 import java.util.PriorityQueue;
-import java.util.Comparator;
-import priorityQueue.Student;
+// import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-        Comparator<Student> name = (a, b) -> a.name.compareTo(b.name);
-        Comparator<Student> gpa = (a, b) -> b.gpa.compareTo(a.gpa);
+        // Comparator<Student> gpa = (a, b) -> b.gpa.compareTo(a.gpa);
 
-        PriorityQueue<Student> studentPQ = new PriorityQueue<Student>(gpa);
+        PriorityQueue<Student> studentPQ = new PriorityQueue<Student>();
 
         studentPQ.add(new Student("John", 4.1));
         studentPQ.add(new Student("Mark", 4.5));
