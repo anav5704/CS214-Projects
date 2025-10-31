@@ -38,7 +38,7 @@ class User implements Cloneable {
 
     @Override
     public String toString() {
-        return "name: " + name + " pet name:" + pet.name;
+        return "name: " + name + " pet name: " + pet.name;
     }
 
 }
@@ -53,7 +53,11 @@ public class Main {
         System.err.println(u);
         System.err.println(c);
 
-        p.name = "New";
+        u.name = "Original User";
+        u.pet.name = "Original Pet";
+
+        c.name = "Cloned USer";
+        c.pet.name = "Cloned Pet";
 
         System.err.println(u);
         System.err.println(c);
