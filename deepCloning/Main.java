@@ -50,8 +50,8 @@ public class Main {
         User u = new User("User", p);
         User c = (User) u.clone();
 
-        System.err.println(u);
-        System.err.println(c);
+        System.out.println(u);
+        System.out.println(c);
 
         u.name = "Original User";
         u.pet.name = "Original Pet";
