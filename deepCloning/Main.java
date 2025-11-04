@@ -59,7 +59,7 @@ public class Main {
         c.name = "Cloned USer";
         c.pet.name = "Cloned Pet";
 
-        System.err.println(u);
-        System.err.println(c);
+        System.out.println(u);
+        System.out.println(c);
     }
 }
